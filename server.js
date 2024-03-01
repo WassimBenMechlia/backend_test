@@ -48,6 +48,8 @@ server.on('listening', () => {
   console.log(address.address);
 });
 
-server.listen(port, ipAddress, () => {
+/* server.listen(port, ipAddress, () => {
   console.log(`Server running at http://${ipAddress}:${port}/`);
-});
+}); */
+server.listen(port);
+
