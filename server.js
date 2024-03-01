@@ -1,4 +1,4 @@
-const http = require('http');
+/*const http = require('http');
 const app = require('./app');
 
 const normalizePort = val => {
@@ -46,10 +46,24 @@ server.on('listening', () => {
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
   console.log('Listening on ' + bind);
   console.log(address.address);
-});
+});*/
 
 /* server.listen(port, ipAddress, () => {
   console.log(`Server running at http://${ipAddress}:${port}/`);
 }); */
-server.listen(port);
+/* server.listen(port); */
 
+// Import packages
+const express = require("express");
+const home = require("./app");
+
+// Middlewares
+const app = express();
+app.use(express.json());
+
+// Routes
+app.use(home);
+
+// connection
+const port = process.env.PORT || 9001;
+app.listen(port, () => console.log(`Listening to port ${port}`));
